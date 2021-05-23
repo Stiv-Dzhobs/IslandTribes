@@ -39,7 +39,7 @@ DiamHealth.Position = UDim2.new(0.0585106388, 0, 0, 0)
 DiamHealth.Size = UDim2.new(0, 168, 0, 27)
 DiamHealth.ZIndex = 14
 DiamHealth.Font = Enum.Font.Ubuntu
-DiamHealth.Text = "2000"
+DiamHealth.Text = "..."
 DiamHealth.TextColor3 = Color3.fromRGB(0, 0, 0)
 DiamHealth.TextScaled = true
 DiamHealth.TextSize = 14.000
@@ -75,7 +75,7 @@ ZenHealth.Position = UDim2.new(0.0585106388, 0, 0.289473683, 0)
 ZenHealth.Size = UDim2.new(0, 168, 0, 27)
 ZenHealth.ZIndex = 14
 ZenHealth.Font = Enum.Font.Ubuntu
-ZenHealth.Text = "3000"
+ZenHealth.Text = "..."
 ZenHealth.TextColor3 = Color3.fromRGB(0, 0, 0)
 ZenHealth.TextScaled = true
 ZenHealth.TextSize = 14.000
@@ -142,6 +142,9 @@ local function YAKKBAP_fake_script() -- Roundify_2.ZenScript
 end
 coroutine.wrap(YAKKBAP_fake_script)()
 
+DiamHealth.Text = game:GetService("Workspace")["Diamond Barrier"].Health.Value
+
+ZenHealth.Text = game:GetService("Workspace")["Zenyte Barrier"].Health.Value
 
 script.Parent.Parent.DiamHealth.Text = game:GetService("Workspace")["Diamond Barrier"].Health:GetPropertyChangedSignal("Value"):Connect(function()
     script.Parent.Parent.DiamHealth.Text = game:GetService("Workspace")["Diamond Barrier"].Health.Value
