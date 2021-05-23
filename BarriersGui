@@ -1,0 +1,160 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Barriers = Instance.new("ScreenGui")
+local MainFrame = Instance.new("Frame")
+local Diam = Instance.new("Frame")
+local RoundifyD = Instance.new("ImageLabel")
+local DiamHealth = Instance.new("TextLabel")
+local Zen = Instance.new("Frame")
+local Roundify = Instance.new("ImageLabel")
+local ZenHealth = Instance.new("TextLabel")
+local Roundify_2 = Instance.new("ImageLabel")
+
+--Properties:
+
+Barriers.Name = "Barriers"
+Barriers.Parent = game:WaitForChild("CoreGui")
+
+MainFrame.Name = "MainFrame"
+MainFrame.Parent = Barriers
+MainFrame.BackgroundColor3 = Color3.fromRGB(163, 148, 200)
+MainFrame.BackgroundTransparency = 1.000
+MainFrame.BorderSizePixel = 0
+MainFrame.Position = UDim2.new(0.83713752, 0, 0.605651021, 0)
+MainFrame.Size = UDim2.new(0, 222, 0, 108)
+
+Diam.Name = "Diam"
+Diam.Parent = MainFrame
+Diam.BackgroundColor3 = Color3.fromRGB(34, 119, 255)
+Diam.BorderSizePixel = 0
+Diam.Position = UDim2.new(0.0720720738, 0, 0.0919540226, 0)
+Diam.Size = UDim2.new(0, 188, 0, 38)
+Diam.ZIndex = 10
+
+RoundifyD.Name = "RoundifyD"
+RoundifyD.Parent = Diam
+RoundifyD.AnchorPoint = Vector2.new(0.5, 0.5)
+RoundifyD.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RoundifyD.BackgroundTransparency = 1.000
+RoundifyD.Position = UDim2.new(0.5, 0, 0.394736826, 0)
+RoundifyD.Size = UDim2.new(1, 8, 1, 8)
+RoundifyD.ZIndex = 11
+RoundifyD.Image = "rbxassetid://3570695787"
+RoundifyD.ImageColor3 = Color3.fromRGB(34, 119, 255)
+RoundifyD.ScaleType = Enum.ScaleType.Slice
+RoundifyD.SliceCenter = Rect.new(100, 100, 100, 100)
+RoundifyD.SliceScale = 0.040
+
+DiamHealth.Name = "DiamHealth"
+DiamHealth.Parent = RoundifyD
+DiamHealth.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DiamHealth.BackgroundTransparency = 1.000
+DiamHealth.BorderSizePixel = 0
+DiamHealth.Position = UDim2.new(0.068714723, 0, 0.195652172, 0)
+DiamHealth.Size = UDim2.new(0, 168, 0, 27)
+DiamHealth.ZIndex = 14
+DiamHealth.Font = Enum.Font.Ubuntu
+DiamHealth.Text = "2000"
+DiamHealth.TextColor3 = Color3.fromRGB(0, 0, 0)
+DiamHealth.TextScaled = true
+DiamHealth.TextSize = 14.000
+DiamHealth.TextWrapped = true
+
+Zen.Name = "Zen"
+Zen.Parent = MainFrame
+Zen.BackgroundColor3 = Color3.fromRGB(200, 134, 2)
+Zen.BorderSizePixel = 0
+Zen.Position = UDim2.new(0.0720720738, 0, 0.528735638, 0)
+Zen.Size = UDim2.new(0, 188, 0, 38)
+Zen.ZIndex = 11
+
+Roundify.Name = "Roundify"
+Roundify.Parent = Zen
+Roundify.AnchorPoint = Vector2.new(0.5, 0.5)
+Roundify.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Roundify.BackgroundTransparency = 1.000
+Roundify.Position = UDim2.new(0.5, 0, 0.736842096, 0)
+Roundify.Size = UDim2.new(1, 8, 1, 8)
+Roundify.ZIndex = 12
+Roundify.Image = "rbxassetid://3570695787"
+Roundify.ImageColor3 = Color3.fromRGB(200, 134, 2)
+Roundify.ScaleType = Enum.ScaleType.Slice
+Roundify.SliceCenter = Rect.new(100, 100, 100, 100)
+Roundify.SliceScale = 0.040
+
+ZenHealth.Name = "ZenHealth"
+ZenHealth.Parent = Roundify
+ZenHealth.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ZenHealth.BackgroundTransparency = 1.000
+ZenHealth.Position = UDim2.new(0.068714723, 0, 0.202517152, 0)
+ZenHealth.Size = UDim2.new(0, 168, 0, 27)
+ZenHealth.ZIndex = 14
+ZenHealth.Font = Enum.Font.Ubuntu
+ZenHealth.Text = "3000"
+ZenHealth.TextColor3 = Color3.fromRGB(0, 0, 0)
+ZenHealth.TextScaled = true
+ZenHealth.TextSize = 14.000
+ZenHealth.TextWrapped = true
+
+Roundify_2.Name = "Roundify"
+Roundify_2.Parent = MainFrame
+Roundify_2.AnchorPoint = Vector2.new(0.5, 0.5)
+Roundify_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Roundify_2.BackgroundTransparency = 1.000
+Roundify_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+Roundify_2.Size = UDim2.new(1, 24, 1, 24)
+Roundify_2.Image = "rbxassetid://3570695787"
+Roundify_2.ImageColor3 = Color3.fromRGB(163, 148, 200)
+Roundify_2.ImageTransparency = 0.450
+Roundify_2.ScaleType = Enum.ScaleType.Slice
+Roundify_2.SliceCenter = Rect.new(100, 100, 100, 100)
+Roundify_2.SliceScale = 0.120
+
+-- Scripts:
+
+if game:GetService("Workspace")["Diamond Barrier"].Health ~= nil then
+DiamHealth.Text = game:GetService("Workspace")["Diamond Barrier"].Health.Value
+game:GetService("Workspace")["Diamond Barrier"].Health:GetPropertyChangedSignal('Value'):Connect(function()
+    DiamHealth.Text = game:GetService("Workspace")["Diamond Barrier"].Health.Value
+end)
+else
+	DiamHealth.Text = 'Diamond Barrier Destroyed'
+end
+
+if game:GetService("Workspace")["Zenyte Barrier"].Health ~= nil then
+ZenHealth.Text = game:GetService("Workspace")["Zenyte Barrier"].Health.Value
+game:GetService("Workspace")["Zenyte Barrier"].Health:GetPropertyChangedSignal('Value'):Connect(function()
+    ZenHealth.Text = game:GetService("Workspace")["Zenyte Barrier"].Health.Value
+end)
+else
+	ZenHealth.Text = 'Zenyte Barrier Destroyed'
+end
+
+local function OUNBIA_fake_script() -- RoundifyD.DiamScript 
+	local script = Instance.new('LocalScript', RoundifyD)
+
+	script.Parent.MouseEnter:Connect(function()
+		lastHealth = script.Parent.DiamHealth.Text
+		script.Parent.DiamHealth.Text = 'Diamond Barrier'
+	end)
+	script.Parent.MouseLeave:Connect(function()
+		script.Parent.DiamHealth.Text = lastHealth
+	end)
+	
+end
+coroutine.wrap(OUNBIA_fake_script)()
+local function SUWLBSD_fake_script() -- Roundify.ZenScript 
+	local script = Instance.new('LocalScript', Roundify)
+
+	script.Parent.MouseEnter:Connect(function()
+		lastHealthZen = script.Parent.ZenHealth.Text
+		script.Parent.ZenHealth.Text = 'Zenyte Barrier'
+	end)
+	script.Parent.MouseLeave:Connect(function()
+		script.Parent.ZenHealth.Text = lastHealthZen
+	end)
+end
+coroutine.wrap(SUWLBSD_fake_script)()
