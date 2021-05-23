@@ -126,7 +126,7 @@ local function AAVUZ_fake_script() -- Roundify.DiamScript
 	end)
 end
 coroutine.wrap(AAVUZ_fake_script)()
-local function YAKKBAP_fake_script() -- Roundify_2.ZenScript 
+local function YAKKBAP_fake_script() -- Roundify_2.ZenScript
 	local script = Instance.new('LocalScript', Roundify_2)
 
 	script.Parent.MouseEnter:Connect(function()
@@ -143,8 +143,14 @@ end
 coroutine.wrap(YAKKBAP_fake_script)()
 
 DiamHealth.Text = game:GetService("Workspace")["Diamond Barrier"].Health.Value
+game:GetService("Workspace")["Diamond Barrier"].Health:GetPropertyChangedSignal('Value'):Connect(function()
+    DiamHealth.Text = game:GetService("Workspace")["Diamond Barrier"].Health.Value
+end)
 
 ZenHealth.Text = game:GetService("Workspace")["Zenyte Barrier"].Health.Value
+game:GetService("Workspace")["Zenyte Barrier"].Health:GetPropertyChangedSignal('Value'):Connect(function()
+    DiamHealth.Text = game:GetService("Workspace")["Zenyte Barrier"].Health.Value
+end)
 
 script.Parent.Parent.DiamHealth.Text = game:GetService("Workspace")["Diamond Barrier"].Health:GetPropertyChangedSignal("Value"):Connect(function()
     script.Parent.Parent.DiamHealth.Text = game:GetService("Workspace")["Diamond Barrier"].Health.Value
